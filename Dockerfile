@@ -4,7 +4,9 @@ FROM php:8.2-apache
 
 ENV COMPOSER_ALLOW_SUPERUSER=1
 
-RUN docker-php-ext-install zip sodium && \
+RUN apt update && \
+    apt -y install nano zip git libzip-dev && \
+    docker-php-ext-install zip sodium && \
     service apache2 restart
 
 
