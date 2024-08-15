@@ -3,7 +3,7 @@ resources:
     - repository: templates
       type: git
       name: PlatOps/SharedLibrary
-      ref: refs/tags/0.1.34
+      ref: refs/tags/0.1.64
       # ref: refs/heads/main
       
 trigger:
@@ -18,4 +18,4 @@ pool:
 extends:
   template: pipeline/php-build-push.yaml@templates
   parameters:
-    imageRepository: 'influxql'
+    imageRepository: 'esuyo'
