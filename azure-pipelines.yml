@@ -1,0 +1,21 @@
+resources:
+  repositories:
+    - repository: templates
+      type: git
+      name: PlatOps/SharedLibrary
+      ref: refs/tags/0.1.34
+      # ref: refs/heads/main
+      
+trigger:
+  batch: true
+  branches:
+    include:
+    - main
+
+pool:
+  name: Default
+
+extends:
+  template: pipeline/php-build-push.yaml@templates
+  parameters:
+    imageRepository: 'influxql'

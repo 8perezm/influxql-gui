@@ -1,0 +1,10 @@
+version: "3.8"
+services:
+  influxql:
+    build: .
+    container_name: "influxql"
+    restart: unless-stopped
+    ports:
+      - '80:80'
+    
+
