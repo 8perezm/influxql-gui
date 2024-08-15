@@ -18,4 +18,4 @@ pool:
 extends:
   template: pipeline/php-build-push.yaml@templates
   parameters:
-    imageRepository: 'esuyo'
+    imageRepository: 'influxql-gui'

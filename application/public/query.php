@@ -1,8 +1,5 @@
 <?php
 
-// curl -G 'https://influxdb-trade.foo.esuyo.com/query?org=esuyo&db=trade' -H "Authorization: Token dp9w1JrW81P_Lc3iHhhrJBv972H6s2qG5FfgmUYMyI3xOX6jIWD0vI8v17Cey9njcg3V8ZutmaWtBcRKPaYaWQ==" --data-urlencode "q=SELECT * FROM candle WHERE time > now() - 24h"
-// https://docs.influxdata.com/influxdb/v1/guides/query_data/
-
 session_start();
 
 require __DIR__ . '/../vendor/autoload.php';
@@ -78,9 +75,9 @@ if (isset($_POST['query'])) {
 
         // Create an HTTP client
         $httpClient = new HttpClient([
-            'base_uri' => 'https://influxdb-trade.foo.esuyo.com',
+            'base_uri' => $_ENV["INFLUXDB_SERVER_URI"],
             'headers' => [
-                'Authorization' => 'Token dp9w1JrW81P_Lc3iHhhrJBv972H6s2qG5FfgmUYMyI3xOX6jIWD0vI8v17Cey9njcg3V8ZutmaWtBcRKPaYaWQ==',
+                'Authorization' => 'Token ' . $_ENV["INFLUXDB_SERVER_TOKEN"],
                 'Content-Type' => 'application/json'
             ]
         ]);
