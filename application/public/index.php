@@ -82,10 +82,12 @@ if (isset($_POST['query'])) {
             ]
         ]);
 
+        $queryCheck = $query;
+        $queryCheck = strtolower($queryCheck);
         if ($query == "") {
             echo "<div class='col-12'><b>Please enter a query</b></div>";
             exit;
-        } else if (!str_starts_with($query, "SELECT ")) {
+        } else if (!str_starts_with($queryCheck, "select ")) {
             echo "<div class='col-12'><b>Only SELECT queries allowed.</b></div>";
             exit;
         }
