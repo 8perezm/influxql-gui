@@ -61,7 +61,7 @@ if (isset($_POST['query'])) {
 
     <div class="container-fluid">
         <div class="mb-3 mt-3">
-            <form action="query.php" method="post">
+            <form method="post">
                 <div class="col-12 mb-2"><textarea id="query" name="query" rows="4" cols="50" class="form-control"><?php echo $query ?></textarea></div>
                 <div class="col-12"><input type="submit" value="Submit" class="btn btn-primary"></div>
             </form>
@@ -72,9 +72,6 @@ if (isset($_POST['query'])) {
             echo "<div class='col-12'><b>Please set INFLUXDB_SERVER_URI and INFLUXDB_SERVER_TOKEN environment variables</b></div>";
             exit;
         }
-
-        echo "<br>" . $_ENV["INFLUXDB_SERVER_URI"];
-        echo "<br>" . $_ENV["INFLUXDB_SERVER_TOKEN"];
 
         // Create an HTTP client
         $httpClient = new HttpClient([
