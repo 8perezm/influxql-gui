@@ -73,6 +73,9 @@ if (isset($_POST['query'])) {
             exit;
         }
 
+        echo "<br>" . $_ENV["INFLUXDB_SERVER_URI"];
+        echo "<br>" . $_ENV["INFLUXDB_SERVER_TOKEN"];
+
         // Create an HTTP client
         $httpClient = new HttpClient([
             'base_uri' => $_ENV["INFLUXDB_SERVER_URI"],
